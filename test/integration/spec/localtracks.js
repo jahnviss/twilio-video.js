@@ -191,7 +191,7 @@ describe('replaceTrack', function() {
 
       // wait for Charlie to see Bob's track
       const bobRemoteInCharlieRoom = charlieRoom.participants.get(bobRoom.localParticipant.sid);
-      await waitFor(tracksSubscribed(bobRemote, 1), `wait for alice to subscribe to Bob's tracks: ${roomSid}`, 20000, true);
+      await waitFor(tracksSubscribed(bobRemoteInCharlieRoom, 1), `wait for charlie to subscribe to Bob's tracks: ${roomSid}`, 20000, true);
 
       const bobRemoteTrackForCharlie = [...bobRemoteInCharlieRoom.videoTracks.values()][0];
       assert.equal(bobRemoteTrackForCharlie.track.isEnabled, trackEnabled, `Charlie was expecting remoteTrack to be ${trackEnabled ? 'enabled' : 'disabled'} in ${roomSid}`);
